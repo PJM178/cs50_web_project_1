@@ -27,6 +27,8 @@ def wiki(request):
 
 def title(request, name):
     testi = util.get_entry(name)
+    request.session["teksti"] = testi
+    request.session["nimi"] = name
     if testi == None:
         return render(request, "encyclopedia/error.html", {
             "name": name,
@@ -69,4 +71,13 @@ def random_page(request):
     lista = util.list_entries()
     random_page = random.choice(lista)
     return HttpResponseRedirect("/wiki/"+random_page)
-   
+
+def edit_page(request):
+    return render(request, "encyclopedia/edit_page.html",{
+        "text": request.session["teksti"]
+    })
+
+def edit_commit(request):
+    text = request.POST
+    util.save_entry(request.session["nimi"],  text["text"])
+    return HttpResponseRedirect("/wiki/"+request.session["nimi"])

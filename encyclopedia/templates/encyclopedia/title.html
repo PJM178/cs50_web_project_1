@@ -5,9 +5,14 @@
 {% endblock %}
 
 {% block body %}
+    <div style="float: right; padding-right: 150px;">
+        <a href="{% url 'edit' %}">Edit</a>
+    </div>
     <h1>{{ name }}</h1>
-
+    
 {{ title }}
+
+
 
 
 {% endblock %}
