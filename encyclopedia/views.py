@@ -45,6 +45,9 @@ def search(request):
     for i in lista:
         if str.lower(i).find(str.lower(query)) != -1:
             results.append(i)
+    for i in results:
+        if str.lower(i) == str.lower(query):
+            return HttpResponseRedirect("/wiki/"+i)
     if not results:
         return render(request, "encyclopedia/error.html",{
             "name": query

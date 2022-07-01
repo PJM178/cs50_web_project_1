@@ -1,1 +1,0 @@
-takaisin jorman korvaksi
