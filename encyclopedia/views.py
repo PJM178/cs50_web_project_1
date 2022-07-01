@@ -60,6 +60,8 @@ def search(request):
 def new_page(request):
     if request.method == "POST":
         text = request.POST
+        if text["title"]== "":
+            return HttpResponseRedirect(reverse("new_page"))
         if util.get_entry(text["title"]) == None:
             util.save_entry(text["title"], text["text"])
             return HttpResponseRedirect("/wiki/"+text["title"])
