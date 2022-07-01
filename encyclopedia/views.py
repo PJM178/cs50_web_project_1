@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 import operator
 from django import forms
+import random
 
 from . import util
 
@@ -63,4 +64,9 @@ def new_page(request):
             })
     else:
         return render(request, "encyclopedia/new_page.html")
+
+def random_page(request):
+    lista = util.list_entries()
+    random_page = random.choice(lista)
+    return HttpResponseRedirect("/wiki/"+random_page)
    
