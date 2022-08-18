@@ -1,4 +1,4 @@
-# CS50's Web Programming with Python and JavaScript - Project 1
+# CS50's Web Programming with Python and JavaScript - Project 1 - Wikipedia
 
 This is a repository for project 1 of CS50's Web Programming with Python and JavaScript. The goal of the project was to build a functionally wikipedia inspired website using Django. The website consists of the following components:
 * Entry page - If a link exists, the user is taken to the page but otherwise an error is displayed.
